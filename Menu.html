@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الطعام | كافيه تحفة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#1a5c3a',
+                            50: '#e8f5e9',
+                            100: '#c8e6c9',
+                            200: '#a5d6a7',
+                            300: '#81c784',
+                            400: '#66bb6a',
+                            500: '#1a5c3a',
+                            600: '#388e3c',
+                            700: '#2e7d32',
+                            800: '#1a5c3a',
+                            900: '#1b5e3b',
+                        },
+                        secondary: {
+                            DEFAULT: '#d4a762',
+                            50: '#fff8e1',
+                            100: '#ffecb3',
+                            200: '#ffe082',
+                            300: '#ffd54f',
+                            400: '#ffca28',
+                            500: '#d4a762',
+                            600: '#ffb300',
+                            700: '#ffa000',
+                            800: '#ff8f00',
+                            900: '#ff6f00',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8f5f2;
+            color: #333;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+:root {
+  --color-amber-50: #fffbeb;
+  --color-coffee-700: #4b371c;
+  --color-coffee-800: #3d2c16;
+  --color-coffee-900: #2e2110;
+  --color-green-50: #f0fdf4;
+  --color-green-200: #bbf7d0;
+  --color-green-300: #86efac;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+  --color-green-700: #15803d;
+  --color-green-800: #166534;
+  --color-green-900: #14532d;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+/* Navigation */
+nav {
+  background-color: rgba(20, 83, 45, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+nav.scrolled {
+  background-color: rgba(20, 83, 45, 0.95);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+        
+        .menu-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .menu-category {
+            border-bottom: 3px solid #d4a762;
+            color: #1a5c3a;
+        }
+        
+        .menu-item {
+            transition: all 0.3s ease;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .menu-item:hover {
+            transform: translateX(-5px);
+            background-color: rgba(26, 92, 58, 0.05);
+        }
+        
+        .price-tag {
+            background-color: #1a5c3a;
+            color: white;
+        }
+        
+        .vegetarian {
+            color: #4CAF50;
+        }
+        
+        .spicy {
+            color: #F44336;
+        }
+        
+        .recommended {
+            position: relative;
+        }
+        
+        .recommended::after {
+            content: "الأكثر طلباً";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background-color: #d4a762;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: #d4a762;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        
+    </style>
+</head>
+<body class="text-right">
+    
+<!-- شريط التنقل -->
+<nav id="navbar" class="fixed w-full z-40 py-4 transition-all duration-300 ease-in-out">
+    <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center">
+            <a href="#home" class="flex items-center text-white transform transition duration-300 hover:scale-105">
+                 <span class="text-xl font-bold ml-3">تحفة كافيه</span>
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-md hover:bg-coffee-600 transition-slow transform hover:scale-110">
+                <i id="mobile-menu-icon" class="fas fa-bars text-2xl"></i>
+            </button>
+            <div class="hidden md:flex space-x-8 space-x-reverse" id="desktop-nav-links">
+                <a href="index.html" class="text-white hover:text-coffee-200 transition-slow relative transform hover:scale-105">الرئيسية</a>
+                <a href="index.html#about" class="text-white hover:text-coffee-200 transition-slow relative transform hover:scale-105">عن المقهى</a>
+                <a href="Menu.html" class="text-white hover:text-coffee-200 transition-slow relative transform hover:scale-105">قائمتنا</a>
+                <a href="index.html#gallery" class="text-white hover:text-coffee-200 transition-slow relative transform hover:scale-105">معرض الصور</a>
+                <a href="index.html#contact" class="text-white hover:text-coffee-200 transition-slow relative transform hover:scale-105">تواصل معنا</a>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-coffee-700 mt-4 py-4 rounded-lg shadow-lg">
+        <div class="container mx-auto px-6 flex flex-col space-y-4">
+            <a href="index.html#home" class="text-white hover:text-coffee-200 transition-slow py-2 px-4 rounded-md transform hover:translate-x-2">الرئيسية</a>
+            <a href="index.html#about" class="text-white hover:text-coffee-200 transition-slow py-2 px-4 rounded-md transform hover:translate-x-2">عن المقهى</a>
+            <a href="Menu.html" class="text-white hover:text-coffee-200 transition-slow py-2 px-4 rounded-md transform hover:translate-x-2">قائمتنا</a>
+            <a href="index.html#gallery" class="text-white hover:text-coffee-200 transition-slow py-2 px-4 rounded-md transform hover:translate-x-2">معرض الصور</a>
+            <a href="index.html#contact" class="text-white hover:text-coffee-200 transition-slow py-2 px-4 rounded-md transform hover:translate-x-2">تواصل معنا</a>
+        </div>
+    </div>
+</nav>
+    <!-- Header -->
+<header class="menu-header text-white py-20 text-center">
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">قائمة الطعام</h1>
+        <p class="text-xl md:text-2xl mb-8">أشهى المشروبات الفاخرة</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#hot-drinks" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-full transition">المشروبات الساخنة</a>
+            <a href="#cold-drinks" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-full transition">المشروبات الباردة</a>
+            <a href="#specialty-coffee" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-full transition">القهوة المختصة</a>
+            <a href="#fresh-juices" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-full transition">العصائر</a>
+            <a href="#desserts" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-full transition">الحلويات</a>
+            <a href="#soft-drinks" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-full transition">المشروبات الغازية</a>
+            <a href="#mojito" class="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-full transition">الموهيتو</a>
+        </div>
+    </div>
+</header>
+
+
+<!-- Menu Content -->
+<main class="container mx-auto px-4 py-12">
+<!-- Hot Drinks -->
+<section id="hot-drinks" class="mb-16">
+    <div class="flex items-center mb-8 menu-category">
+        <i class="fas fa-coffee text-3xl ml-4 text-primary-800"></i>
+        <h2 class="text-3xl font-bold text-primary-800">المشروبات الساخنة</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">كابتشينو</h3>
+                    <p class="text-gray-600">مشروب ساخن غني بالرغوة والنكهة الكريمية.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">13 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">لاتيه</h3>
+                    <p class="text-gray-600">حليب مخلوط مع قهوة إسبريسو لذيذة.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">13 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">فلات وايت</h3>
+                    <p class="text-gray-600">مشروب قهوة بحليب مركز ومذاق ناعم.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">12 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ميكاتو</h3>
+                    <p class="text-gray-600">لا توجد تفاصيل متاحة حاليًا لهذا المشروب.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">12 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">كورتادو</h3>
+                    <p class="text-gray-600">إسبريسو ممزوج بحليب بنسبة متوازنة.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">12 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">اسبريسو</h3>
+                    <p class="text-gray-600">قهوة اسبريسو مركزة وغنية بالنكهة.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">9 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">اسبريسو دبل</h3>
+                    <p class="text-gray-600">جرعة مزدوجة من قهوة الإسبريسو.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">11 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">قهوة تركي</h3>
+                    <p class="text-gray-600">قهوة تركية تقليدية بطعمها القوي.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">11 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">قهوة فرنسي بندق</h3>
+                    <p class="text-gray-600">قهوة فرنسية بنكهة البندق الغنية.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">12 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">شاي أحمر</h3>
+                    <p class="text-gray-600">شاي تقليدي غني بالنكهة والطعم.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">6 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">شاي أخضر</h3>
+                    <p class="text-gray-600">شاي أخضر منعش بفوائد صحية.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">7 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">براد شاي</h3>
+                    <p class="text-gray-600">براد شاي دافئ يقدم للمشاركة.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">17 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">هوت شوكلت</h3>
+                    <p class="text-gray-600">مشروب شوكولاتة ساخنة غني ودافئ.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">13 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800"> موكا </h3>
+                    <p class="text-gray-600">قهوة ساخنة.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">14 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">دله قهوة عربي </h3>
+                    <p class="text-gray-600">قهوة عربية أصيلة بنكهة قوية.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">23 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ماتشا لاتيه </h3>
+                    <p class="text-gray-600">مشروب ماتشا لاتيه.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">19 ر.س</span>
+            </div>
+        </div>
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800"> سبانش لاتيه حار</h3>
+                    <p class="text-gray-600">مشروب سبانش لاتيه حار.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">14 ر.س</span>
+            </div>
+        </div>
+    </div>        
+
+
+</section>
+        
+<section id="cold-drinks" class="mb-16">
+    <div class="flex items-center mb-8 menu-category">
+        <i class="fas fa-ice-cream text-3xl ml-4 text-primary-800"></i>
+        <h2 class="text-3xl font-bold text-primary-800">المشروبات الباردة</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ايس شيكن وايت موكا</h3>
+                    <p class="text-gray-600">مشروب بارد ومنعش.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">14 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ايس سبانش لاتيه</h3>
+                    <p class="text-gray-600">سبانش لاتيه بارد ومنعش بطعم مميز.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">14 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ايس لاتيه</h3>
+                    <p class="text-gray-600">مشروب لاتيه بارد غني بالحليب والنكهة.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">13 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">موكا فرابيه</h3>
+                    <p class="text-gray-600">مشروب موكا بارد بمزيج قهوة وشوكولاتة لذيذ.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">14 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ايس شوكلت</h3>
+                    <p class="text-gray-600">مشروب شوكولاته بارد ومنعش .</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">12 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ايس كراميل ماكياتو</h3>
+                    <p class="text-gray-600">ماكياتو بارد بنكهة الكراميل الغنية.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">14 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ايس سبانش ماتشا</h3>
+                    <p class="text-gray-600">مشروب سبانش بارد ومنعش.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">17 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ايس امريكانو</h3>
+                    <p class="text-gray-600">قهوة طبيعية باردة ومنعشة.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">12 ر.س</span>
+            </div>
+        </div>
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ايس ماتشا</h3>
+                    <p class="text-gray-600"> ماتشا طبيعية باردة ومنعشة.</p>
+                    <div class="mt-2">
+                        <span class="vegetarian text-sm"><i class="fas fa-leaf"></i> نباتي</span>
+                    </div>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">16 ر.س</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="fresh-juices" class="mb-16">
+    <div class="flex items-center mb-8 menu-category">
+        <i class="fas fa-blender text-3xl ml-4 text-primary-800"></i>
+        <h2 class="text-3xl font-bold text-primary-800">عصائر طازجه</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">كركديه</h3>
+                    <p class="text-gray-600">كركديه بارد ومنعش بطعم طبيعي.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">12 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ليمون نعناع</h3>
+                    <p class="text-gray-600">عصير ليمون مع نعناع طازج ومنعش.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">11 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">برتقال</h3>
+                    <p class="text-gray-600">عصير برتقال طبيعي 100% طازج.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">12 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ايس تي</h3>
+                    <p class="text-gray-600">شاي مثلج منعش.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">14 ر.س</span>
+            </div>
+        </div>
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">مانجا </h3>
+                    <p class="text-gray-600">مانجا طازجة فريش ومنعشة.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">11 ر.س</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="desserts" class="mb-16">
+    <div class="flex items-center mb-8 menu-category">
+        <i class="fas fa-cookie-bite text-3xl ml-4 text-primary-800"></i>
+        <h2 class="text-3xl font-bold text-primary-800">الحلويات</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">تشيز بيكان</h3>
+                    <p class="text-gray-600">تشيز كيك بيكن بصوص مميز.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">21 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">تشيز مقلوبة</h3>
+                    <p class="text-gray-600">تشيز كيك مقلوبة بطعم غني.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">19 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">كيكة العسل</h3>
+                    <p class="text-gray-600">كيكة العسل اللذيذة والطرية.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">19 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">كيكة احمد الزامل</h3>
+                    <p class="text-gray-600">كيكة احمد الزامل بطعم استوائي مميز.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">19 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">كيكة سنيكرز</h3>
+                    <p class="text-gray-600">كيكة بنكهة شوكولاتة سنكرز الغنية.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">19 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ايس كريم</h3>
+                    <p class="text-gray-600">آيس كريم بنكهات متنوعة ومنعشة.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">7 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">كوكيز</h3>
+                    <p class="text-gray-600">كوكيز طازج مقرمش.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">9 ر.س</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="specialty-coffee" class="mb-16">
+    <div class="flex items-center mb-8 menu-category">
+        <i class="fas fa-mug-hot text-3xl ml-4 text-primary-800"></i>
+        <h2 class="text-3xl font-bold text-primary-800">القهوة المختصة</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">قهوة اليوم بارد</h3>
+                    <p class="text-gray-600">قهوة اليوم الباردة بتوليفة خاصة من كافيه تحفة.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">10 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">قهوة اليوم حار</h3>
+                    <p class="text-gray-600">قهوة اليوم الساخنة بطعم غني ومميز.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">10 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">V60 حار</h3>
+                    <p class="text-gray-600">قهوة V60 بتحضير يدوي مميز.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">15 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">ايس V60</h3>
+                    <p class="text-gray-600">قهوة V60 باردة بطريقة تحضير احترافية.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">15 ر.س</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="soft-drinks" class="mb-16">
+    <div class="flex items-center mb-8 menu-category">
+        <i class="fas fa-glass-martini-alt text-3xl ml-4 text-primary-800"></i>
+        <h2 class="text-3xl font-bold text-primary-800">المشروبات الغازية</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">سفن</h3>
+                    <p class="text-gray-600">مشروب سفن أب المنعش.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">6 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">بيبسي</h3>
+                    <p class="text-gray-600">بيبسي بارد ومنعش.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">6 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">بيبسي دايت</h3>
+                    <p class="text-gray-600">بيبسي دايت قليل السعرات.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">6 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">مياه معدنية</h3>
+                    <p class="text-gray-600">زجاجة مياه معدنية باردة.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">1 ر.س</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="mojito" class="mb-16">
+    <div class="flex items-center mb-8 menu-category">
+        <i class="fas fa-cocktail text-3xl ml-4 text-primary-800"></i>
+        <h2 class="text-3xl font-bold text-primary-800">الموهيتو</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800">موهيتو كودرد</h3>
+                    <p class="text-gray-600">موهيتو منعش  .</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">14 ر.س</span>
+            </div>
+        </div>
+
+        <div class="menu-item p-4">
+            <div class="flex justify-between items-start">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-800"> موهيتو باشون فروت - بطيخ - توت ازرق سفن</h3>
+                    <p class="text-gray-600">موهيتو استوائي بنكهة باشون فروت المنعشة.</p>
+                </div>
+                <span class="price-tag px-3 py-1 rounded-full text-sm font-bold">12 ر.س</span>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+</main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">كافيه تحفة</h3>
+                    <p>أجواء فاخرة، قهوة مميزة، وأطباق لذيذة</p>
+                    <div class="mt-4 flex space-x-4 space-x-reverse">
+                        <a href="https://www.instagram.com/tohfa.coffee" class="hover:text-secondary-500 transition"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="https://wa.me/966504858940" class="hover:text-secondary-500 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
+                        <a href="https://www.snapchat.com/add/tohfaacafe?share_id=kry5djYdQ6+MT7Qg6ZgYGw&locale=en_EG&sid=8593c204fd67404a91fc0524f86e121a" class="hover:text-secondary-500 transition"><i class="fab fa-snapchat text-2xl"></i></a>
+                    </div>
+                </div>
+                
+               <div>
+                    <h3 class="text-xl font-bold mb-4">ساعات العمل</h3>
+                    <p>الأحد - السبت 7 صباحاً - 4 صباحا </p>
+                    <p>الجمعة : 2 مسائا -  4 صباحاً</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">تواصل معنا</h3>
+                    <p><i class="fas fa-map-marker-alt ml-2"></i> الامير عبدالمجيد بن عبدالعزيز، الاسكان،، المدينة المنورة 42317، المملكة العربية السعودية</p>
+                    <p><i class="fas fa-phone ml-2"></i> +966504858940</p>
+                    <p><i class="fas fa-envelope ml-2"></i> info@tahfah-cafe.com</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-primary-700 mt-8 pt-8 text-center">
+                <p>&copy; 2023 كافيه تحفة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+    // 1. Mobile Menu Toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+        const icon = document.getElementById('mobile-menu-icon');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    // 2. Smooth Scroll for Navigation Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // 3. Highlight Active Nav Link on Scroll
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        let currentSection = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150;
+            const sectionHeight = section.offsetHeight;
+            if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                currentSection = section.id;
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('nav-link-active');
+            if (link.getAttribute('href') === '#' + currentSection) {
+                link.classList.add('nav-link-active');
+            }
+        });
+    });
+
+    // 4. Animate Elements on Scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+
+            if (elementPosition < screenPosition && elementPosition > -element.clientHeight) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+
+    // 5. Back to Top Button
+    const backToTopButton = document.createElement('button');
+    backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTopButton.className = 'fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-slow opacity-0 pointer-events-none z-40';
+    backToTopButton.setAttribute('id', 'back-to-top');
+    document.body.appendChild(backToTopButton);
+
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('back-to-top');
+        if (window.scrollY > 300) {
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+        } else {
+            btn.style.opacity = '0';
+            btn.style.pointerEvents = 'none';
+        }
+    });
+
+    document.getElementById('back-to-top').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // 6. Initialize Animations for Elements with Class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(50px)';
+        el.style.transition = 'opacity 1s ease, transform 1s ease';
+    });
+
+    // 7. Contact Form Submission (Basic Example)
+    const contactForm = document.querySelector('form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('تم استلام رسالتك! سنرد عليك قريبًا.');
+            contactForm.reset();
+        });
+    }
+
+    // 8. إغلاق قائمة الهاتف عند النقر على رابط
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.add('hidden');
+            document.getElementById('mobile-menu-icon').classList.replace('fa-times', 'fa-bars');
+        });
+    });
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

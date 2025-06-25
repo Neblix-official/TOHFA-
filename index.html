@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كافيه تحفة | Tohfa Café - السعودية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'coffee': {
+                            '50': '#f0fdf4', 
+                            '100': '#dcfce7',
+                            '200': '#bbf7d0',
+                            '300': '#86efac',
+                            '400': '#4ade80',
+                            '500': '#22c55e',
+                            '600': '#16a34a',
+                            '700': '#15803d',
+                            '800': '#166534',
+                            '900': '#14532d',
+                            '950': '#052e16',
+                        },
+
+                            secondary: {
+                            DEFAULT: '#d4a762',
+                            50: '#fff8e1',
+                            100: '#ffecb3',
+                            200: '#ffe082',
+                            300: '#ffd54f',
+                            400: '#ffca28',
+                            500: '#d4a762',
+                            600: '#ffb300',
+                            700: '#ffa000',
+                            800: '#ff8f00',
+                            900: '#ff6f00',
+                        },
+
+                         primary: {
+                            DEFAULT: '#1a5c3a',
+                            50: '#e8f5e9',
+                            100: '#c8e6c9',
+                            200: '#a5d6a7',
+                            300: '#81c784',
+                            400: '#66bb6a',
+                            500: '#1a5c3a',
+                            600: '#388e3c',
+                            700: '#2e7d32',
+                            800: '#1a5c3a',
+                            900: '#1b5e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>/* Reset and Base Styles */
+/* Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+:root {
+  --color-amber-50: #fffbeb;
+  --color-coffee-700: #4b371c;
+  --color-coffee-800: #3d2c16;
+  --color-coffee-900: #2e2110;
+  --color-green-50: #f0fdf4;
+  --color-green-200: #bbf7d0;
+  --color-green-300: #86efac;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+  --color-green-700: #15803d;
+  --color-green-800: #166534;
+  --color-green-900: #14532d;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  direction: rtl;
+  scroll-behavior: smooth;
+}
+
+/* Navigation */
+nav {
+  background-color: rgba(20, 83, 45, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+nav.scrolled {
+  background-color: rgba(20, 83, 45, 0.95);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Hero Section */
+#home {
+  position: relative;
+  background-color: var(--color-coffee-900);
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Poetry Section */
+.poetry-section {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.poetry-section .video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.poetry-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.poetry-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.poetry-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-amber-50);
+}
+
+.poetry-content blockquote {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  font-style: italic;
+  color: var(--color-amber-50);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Transitions */
+.transition-slow {
+  transition: all 0.5s ease;
+}
+
+.transition-medium {
+  transition: all 0.3s ease;
+}
+
+.transition-fast {
+  transition: all 0.15s ease;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating-button {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-green-600);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-green-700);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-outline:hover {
+  background-color: white;
+  color: var(--color-green-800);
+}
+
+/* Form Styles */
+input, textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-green-700);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-green-500);
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.5);
+}
+
+/* Utility Classes */
+.text-coffee-900 {
+  color: var(--color-coffee-900);
+}
+
+.bg-amber-50 {
+  background-color: var(--color-amber-50);
+}
+
+.bg-green-50 {
+  background-color: var(--color-green-50);
+}
+
+.bg-green-900 {
+  background-color: var(--color-green-900);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .poetry-content h2 {
+    font-size: 2rem;
+  }
+  
+  .poetry-content blockquote {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  
+  #home .container {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-amber-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-green-600);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-green-700);
+}
+
+    </style>
+</head>
+<body class="bg-amber-50 text-coffee-900">
+
+<!-- زر الواتساب -->
+<a href="https://wa.me/966504858940"  target="_blank" class="fixed bottom-6 left-6 z-50 bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center transition-slow floating-button">
+    <i class="fab fa-whatsapp ml-2 text-xl"></i>
+    <span>تواصل معنا عبر واتساب</span>
+</a>
+
+<!-- شريط التنقل -->
+<nav id="navbar" class="fixed w-full z-40 py-4 transition-all duration-300 ease-in-out">
+    <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center">
+            <a href="#home" class="flex items-center text-white transform transition duration-300 hover:scale-105">
+                 <span class="text-xl font-bold ml-3">تحفة كافيه</span>
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-md hover:bg-coffee-600 transition-slow transform hover:scale-110">
+                <i id="mobile-menu-icon" class="fas fa-bars text-2xl"></i>
+            </button>
+            <div class="hidden md:flex space-x-8 space-x-reverse" id="desktop-nav-links">
+                <a href="#home" class="text-white hover:text-coffee-200 transition-slow relative transform hover:scale-105">الرئيسية</a>
+                <a href="#about" class="text-white hover:text-coffee-200 transition-slow relative transform hover:scale-105">عن المقهى</a>
+                <a href="Menu.html" class="text-white hover:text-coffee-200 transition-slow relative transform hover:scale-105">قائمتنا</a>
+                <a href="#gallery" class="text-white hover:text-coffee-200 transition-slow relative transform hover:scale-105">معرض الصور</a>
+                <a href="#contact" class="text-white hover:text-coffee-200 transition-slow relative transform hover:scale-105">تواصل معنا</a>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-coffee-700 mt-4 py-4 rounded-lg shadow-lg">
+        <div class="container mx-auto px-6 flex flex-col space-y-4">
+            <a href="#home" class="text-white hover:text-coffee-200 transition-slow py-2 px-4 rounded-md transform hover:translate-x-2">الرئيسية</a>
+            <a href="#about" class="text-white hover:text-coffee-200 transition-slow py-2 px-4 rounded-md transform hover:translate-x-2">عن المقهى</a>
+            <a href="Menu.html" class="text-white hover:text-coffee-200 transition-slow py-2 px-4 rounded-md transform hover:translate-x-2">قائمتنا</a>
+            <a href="#gallery" class="text-white hover:text-coffee-200 transition-slow py-2 px-4 rounded-md transform hover:translate-x-2">معرض الصور</a>
+            <a href="#contact" class="text-white hover:text-coffee-200 transition-slow py-2 px-4 rounded-md transform hover:translate-x-2">تواصل معنا</a>
+        </div>
+    </div>
+</nav>
+
+<!-- قسم الهيرو -->
+<section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <video class="video-background" autoplay loop muted playsinline>
+        <source src="video tohfa.mp4" type="video/mp4">
+        متصفحك لا يدعم عرض الفيديو.
+    </video>
+    <div class="video-overlay"></div>
+    <div class="container mx-auto px-6 py-20 z-10 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white">كافيه تحفة</h1>
+        <p class="text-xl md:text-2xl text-amber-100 mb-8">أصالة الطعم وراحة البال في المدينة المنورة</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="Menu.html" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full text-lg font-medium inline-block transition-slow animate-pulse">
+                شوف قائمتنا
+            </a>
+            <a href="#contact" class="border-2 border-white hover:bg-white hover:text-green-800 text-white px-8 py-3 rounded-full text-lg font-medium inline-block transition-slow">
+                احجز طاولتك
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- قسم "عن المقهى" -->
+<section id="about" class="py-20 bg-green-50">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <img src="tohfa1 (6).jpg"
+                     alt="كافيه تحفة من الداخل"
+                     class="rounded-xl shadow-lg w-full h-auto object-cover transform transition duration-500 hover:scale-105">
+            </div>
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold mb-6 text-secondary-800">عن كافيه تحفة</h2>
+                <p class="text-lg mb-4 text-coffee-700">
+                    كافيه تحفة في المدينة المنورة هو وجهتك المثالية لعشاق القهوة العربية الأصيلة والجو الهادئ.
+                </p>
+                <p class="text-lg mb-6 text-coffee-700">
+                    تأسس المقهى عام 2022 بهدف تقديم تجربة فريدة تجمع بين الأصالة والحداثة.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex items-center transition transform hover:scale-105">
+                        <i class="fas fa-coffee text-green-600 text-2xl ml-2"></i>
+                        <span>قهوة سعودية أصيلة</span>
+                    </div>
+                    <div class="flex items-center transition transform hover:scale-105">
+                        <i class="fas fa-wifi text-green-600 text-2xl ml-2"></i>
+                        <span>واي فاي مجاني</span>
+                    </div>
+                    <div class="flex items-center transition transform hover:scale-105">
+                        <i class="fas fa-clock text-green-600 text-2xl ml-2"></i>
+                        <span>يومياً: 7:00 ص - 4:00 ص</span>
+                    </div>
+                    <div class="flex items-center transition transform hover:scale-105">
+                        <i class="fas fa-parking text-green-600 text-2xl ml-2"></i>
+                        <span>مواقف مجانية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- سكشن الفيديو مع أبيات الشعر -->
+<section class="poetry-section">
+  <!-- فيديو الخلفية -->
+  <video autoplay loop muted playsinline class="video-background">
+    <source src="تحفة.MOV" type="video/mp4">
+    عذرًا، المتصفح لا يدعم عرض الفيديو.
+  </video>
+
+  <!-- طبقة تعتيم -->
+  <div class="overlay"></div>
+
+  <!-- النص الشعري -->
+  <div class="poetry-content">
+    <h2>القهوة.. رائحة الذكريات</h2>
+    <blockquote>
+   يا سلوةَ القلبِ في ليلِ السُرى سَكِبَتْ
+كالسِحرِ في الكأسِ تُحيي الروحَ والأمَلا
+
+سمراءُ طابتْ، لها في النفسِ منزلةٌ
+تُجلو الهمومَ وتُنسي البُعدَ والمَلَلا
+
+إنْ قِيلَ ما عشقُك؟ قُلتُ: فِداكِ مهجتي
+قهوةٌ تسري كالنورِ إذا اكتَمَلا
+
+يا من بها طابَ وقتي واستراحَ فمي
+في كلِّ رشفةِ حبٍ أرتوي أمَلا
+
+لو أبصرَ المتنبي طيبَ نكهتها
+لقال: يا قومُ هذا العِطرُ قد نَزَلا
+
+
+    </blockquote>
+  </div>
+</section>
+
+
+    <!-- قسم معرض الصور الجديد -->
+    <section id="gallery" class="py-20 bg-primary-500">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-extrabold mb-16 text-secondary-600 text-center border-b-4 border-white-400 pb-4 mx-auto w-fit">
+                <i class="fas fa-camera ml-4 text-white-500 text-5xl"></i>
+                معرض الصور
+            </h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <img src="tohfa1 (1).jpg" alt="كافيه تحفة" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <img src="green to.jpg" alt="مشروبات الكافيه" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <img src="green toh1.jpg" alt="حلويات الكافيه" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <img src="tohfa1 (4).jpg" alt="وجبات الفطور" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <img src="tohfa1 (5).jpg" alt="ديكور الكافيه" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <img src="tohfa1 (6).jpg" alt="ساندوتشات الكافيه" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+            
+        
+        </div>
+    </section>
+
+    <section id="reservations" class="py-20 relative overflow-hidden" 
+         style="background-image: url('tohfa1 (4).jpg'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed;">
+    
+    <div class="absolute inset-0 bg-primary-700 opacity-80"></div>
+    <div class="container mx-auto px-6 max-w-4xl relative z-10">
+        <div class="bg-secondary-50 rounded-2xl shadow-2xl p-8 md:p-12">
+            <h2 class="text-4xl font-extrabold mb-8 text-primary-700 text-center">
+                <i class="fas fa-calendar-check ml-4 text-secondary-800 text-5xl"></i>
+                حجز طاولة
+            </h2>
+            
+            <form class="space-y-6" id="reservation-form">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="reservation-name" class="block text-white-400 mb-2">الاسم بالكامل</label>
+                        <input type="text" id="reservation-name" class="w-full px-4 py-3 rounded-lg bg-secondary-50 border border-white-400 focus:border-white-500 focus:outline-none text-primary-700 placeholder-white-300" placeholder="أدخل اسمك">
+                    </div>
+                    <div>
+                        <label for="reservation-email" class="block text-white-400 mb-2">البريد الإلكتروني</label>
+                        <input type="email" id="reservation-email" class="w-full px-4 py-3 rounded-lg bg-secondary-50 border border-white-400 focus:border-white-500 focus:outline-none text-primary-700 placeholder-white-300" placeholder="أدخل بريدك الإلكتروني">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="reservation-phone" class="block text-white-400 mb-2">رقم الجوال</label>
+                        <input type="tel" id="reservation-phone" class="w-full px-4 py-3 rounded-lg bg-secondary-50 border border-white-400 focus:border-white-500 focus:outline-none text-primary-700 placeholder-white-300" placeholder="05XXXXXXXX">
+                    </div>
+                    <div>
+                        <label for="reservation-date" class="block text-white-400 mb-2">التاريخ</label>
+                        <input type="date" id="reservation-date" class="w-full px-4 py-3 rounded-lg bg-secondary-50 border border-white-400 focus:border-white-500 focus:outline-none text-primary-700">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="reservation-time" class="block text-white-400 mb-2">الوقت</label>
+                        <input type="time" id="reservation-time" class="w-full px-4 py-3 rounded-lg bg-secondary-50 border border-white-400 focus:border-white-500 focus:outline-none text-primary-700">
+                    </div>
+                    <div>
+                        <label for="reservation-guests" class="block text-white-400 mb-2">عدد الأشخاص</label>
+                        <select id="reservation-guests" class="w-full px-4 py-3 rounded-lg bg-secondary-50 border border-white-400 focus:border-white-500 focus:outline-none text-primary-700">
+                            <option value="1">1 شخص</option>
+                            <option value="2">2 أشخاص</option>
+                            <option value="3">3 أشخاص</option>
+                            <option value="4">4 أشخاص</option>
+                            <option value="5">5 أشخاص</option>
+                            <option value="6">6 أشخاص</option>
+                            <option value="7">7 أشخاص فأكثر</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="reservation-notes" class="block text-white-400 mb-2">ملاحظات إضافية (اختياري)</label>
+                    <textarea id="reservation-notes" rows="3" class="w-full px-4 py-3 rounded-lg bg-secondary-50 border border-white-400 focus:border-white-500 focus:outline-none text-primary-700 placeholder-white-300" placeholder="أي طلبات خاصة أو احتياجات خاصة"></textarea>
+                </div>
+                
+                <div class="pt-4">
+                    <button type="submit" class="w-full bg-primary-50 hover:bg-primary-700 text-white-500 py-4 px-6 rounded-full text-xl font-bold transition-slow shadow-lg hover:shadow-xl">
+                        تأكيد الحجز <i class="fas fa-check mr-2"></i>
+                    </button>
+                </div>
+            </form>
+            
+            <div class="mt-10 pt-6 border-t border-white-300 text-center">
+                <h3 class="text-xl font-bold text-primary-700 mb-4">للحجوزات الجماعية أو الاستفسارات</h3>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 space-x-reverse">
+                    <a href="tel:+966501234567" class="flex items-center text-primary-700 hover:text-primary-800 transition-colors">
+                        <i class="fas fa-phone-alt ml-2 text-xl"></i>
+                        <span>+966504858940</span>
+                    </a>
+                    <br>
+                    <a href="mailto:reservations@tahfah-cafe.com" class="flex items-center text-primary-700 hover:text-primary-800 transition-colors">
+                        <i class="fas fa-envelope ml-2 text-xl"></i>
+                        <span>reservations@tahfah-cafe.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- قسم التواصل -->
+<section id="contact" class="py-20 bg-green-900 text-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16">تواصل معنا</h2>
+        <div class="flex flex-col md:flex-row gap-12">
+            <div class="md:w-1/2">
+                <h3 class="text-2xl font-semibold mb-6">معلومات التواصل</h3>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-green-300 text-xl mt-1 ml-4"></i>
+                        <div>
+                            <h4 class="font-medium">العنوان</h4>
+                            <p class="text-green-200">الامير عبدالمجيد بن عبدالعزيز، الاسكان،، المدينة المنورة 42317، المملكة العربية السعودية</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-phone-alt text-green-300 text-xl mt-1 ml-4"></i>
+                        <div>
+                            <h4 class="font-medium">الهاتف</h4>
+                            <p class="text-green-200">+966504858940</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-envelope text-green-300 text-xl mt-1 ml-4"></i>
+                        <div>
+                            <h4 class="font-medium">البريد الإلكتروني</h4>
+                            <p class="text-green-200">info@tohfacafe.sa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <h4 class="font-medium mb-2">تابعنا على</h4>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="bg-green-800 hover:bg-green-700 w-10 h-10 rounded-full flex items-center justify-center transition"> 
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-green-800 hover:bg-green-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-green-800 hover:bg-green-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-snapchat"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form with ID -->
+            <div class="md:w-1/2">
+                <h3 class="text-2xl font-semibold mb-6">أرسل لنا رسالة</h3>
+                <form id="contact-form" class="space-y-4">
+                    <div>
+                        <label for="contact-name" class="block mb-2">الاسم</label>
+                        <input type="text" id="contact-name" class="w-full px-4 py-2 rounded bg-green-800 border border-green-700 text-white placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div>
+                        <label for="contact-email" class="block mb-2">البريد الإلكتروني</label>
+                        <input type="email" id="contact-email" class="w-full px-4 py-2 rounded bg-green-800 border border-green-700 text-white placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+                    <div>
+                        <label for="contact-message" class="block mb-2">الرسالة</label>
+                        <textarea id="contact-message" rows="5" class="w-full px-4 py-2 rounded bg-green-800 border border-green-700 text-white placeholder-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                    </div>
+                    <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded font-medium transition hover:animate-pulse">
+                        إرسال الرسالة
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Message Box -->
+<div id="contact-success-message" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+    <div class="bg-green-500 text-white text-2xl font-bold px-8 py-6 rounded-lg shadow-lg">
+        تم إرسال الرسالة بنجاح!
+    </div>
+</div>
+
+<!-- خريطة Google (اختياري) --><section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-10">موقعنا</h2>
+        <div class="aspect-w-16 aspect-h-9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.2657628936694!2d39.588890799999996!3d24.445411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c5c90a55a148c7%3A0xcf3c63edcf20c3db!2z2KfZhNio2KfZhg!5e0!3m2!1sar!2seg!4v1719312398924!5m2!1sar!2seg"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="bg-primary-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">كافيه تحفة</h3>
+                    <p>أجواء فاخرة، قهوة مميزة، وأطباق لذيذة</p>
+                    <div class="mt-4 flex space-x-4 space-x-reverse">
+                        <a href="https://www.instagram.com/tohfa.coffee" class="hover:text-secondary-500 transition"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="https://wa.me/966504858940" class="hover:text-secondary-500 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
+                        <a href="https://www.snapchat.com/add/tohfaacafe?share_id=kry5djYdQ6+MT7Qg6ZgYGw&locale=en_EG&sid=8593c204fd67404a91fc0524f86e121a" class="hover:text-secondary-500 transition"><i class="fab fa-snapchat text-2xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ساعات العمل</h3>
+                    <p>الأحد - السبت 7 صباحاً - 4 صباحا </p>
+                    <p>الجمعة : 2 مسائا -  4 صباحاً</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">تواصل معنا</h3>
+                    <p><i class="fas fa-map-marker-alt ml-2"></i> الامير عبدالمجيد بن عبدالعزيز، الاسكان،، المدينة المنورة 42317، المملكة العربية السعودية</p>
+                    <p><i class="fas fa-phone ml-2"></i> +966504858940</p>
+                    <p><i class="fas fa-envelope ml-2"></i> info@tahfah-cafe.com</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-primary-700 mt-8 pt-8 text-center">
+                <p>&copy; 2023 كافيه تحفة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="success-message" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+    <div class="bg-green-500 text-white text-2xl font-bold px-8 py-6 rounded-lg shadow-lg">
+        تم تأكيد الحجز بنجاح!
+    </div>
+</div>
+
+
+<!-- إغلاق آخر علامات HTML -->
+ <script>
+    // ==============================
+// 1. Mobile Menu Toggle
+// ==============================
+document.getElementById('mobile-menu-button').addEventListener('click', function () {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+    const icon = document.getElementById('mobile-menu-icon');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+});
+
+// ==============================
+// 2. Smooth Scroll for Navigation Links
+// ==============================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ==============================
+// 3. Highlight Active Nav Link on Scroll
+// ==============================
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    let currentSection = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            currentSection = section.id;
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('nav-link-active');
+        if (link.getAttribute('href') === '#' + currentSection) {
+            link.classList.add('nav-link-active');
+        }
+    });
+});
+
+// ==============================
+// 4. Animate Elements on Scroll
+// ==============================
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (elementPosition < screenPosition && elementPosition > -element.clientHeight) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+};
+
+window.addEventListener('scroll', animateOnScroll);
+
+// ==============================
+// 5. Back to Top Button
+// ==============================
+const backToTopButton = document.createElement('button');
+backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+backToTopButton.className = 'fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-slow opacity-0 pointer-events-none z-40';
+backToTopButton.setAttribute('id', 'back-to-top');
+document.body.appendChild(backToTopButton);
+
+window.addEventListener('scroll', () => {
+    const btn = document.getElementById('back-to-top');
+    if (window.scrollY > 300) {
+        btn.style.opacity = '1';
+        btn.style.pointerEvents = 'auto';
+    } else {
+        btn.style.opacity = '0';
+        btn.style.pointerEvents = 'none';
+    }
+});
+
+document.getElementById('back-to-top').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// ==============================
+// 6. Initialize Animations for Elements with Class
+// ==============================
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(50px)';
+    el.style.transition = 'opacity 1s ease, transform 1s ease';
+});
+
+// ==============================
+// 7. Close Mobile Menu on Link Click
+// ==============================
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.add('hidden');
+        document.getElementById('mobile-menu-icon').classList.replace('fa-times', 'fa-bars');
+    });
+});
+
+// ==============================
+// 8. Send Contact Form
+// ==============================
+// إرسال نموذج التواصل
+document.querySelector('#contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = {
+        name: document.getElementById('contact-name').value,
+        email: document.getElementById('contact-email').value,
+        message: document.getElementById('contact-message').value
+    };
+
+    try {
+        const response = await fetch('http://localhost:5000/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            e.target.reset();
+            showContactSuccessMessage(); // عرض رسالة النجاح
+        } else {
+            alert(data.message);
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert('حدث خطأ أثناء إرسال الرسالة');
+    }
+});
+
+function showContactSuccessMessage() {
+    const messageBox = document.getElementById('contact-success-message');
+    messageBox.classList.remove('hidden');
+
+    setTimeout(() => {
+        messageBox.classList.add('hidden');
+    }, 3000); // تختفي بعد 3 ثواني
+}
+
+// ==============================
+// 9. Send Reservation Form (Updated)
+// ==============================
+document.querySelector('#reservation-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = {
+        name: document.getElementById('reservation-name').value,
+        email: document.getElementById('reservation-email').value,
+        phone: document.getElementById('reservation-phone').value,
+        date: document.getElementById('reservation-date').value,
+        time: document.getElementById('reservation-time').value,
+        guests: document.getElementById('reservation-guests').value,
+        notes: document.getElementById('reservation-notes').value
+    };
+
+    try {
+        const response = await fetch('http://localhost:5000/api/reservations', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            e.target.reset();
+            showSuccessMessage(); // عرض رسالة النجاح
+        } else {
+            alert(data.message);
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert('حدث خطأ أثناء معالجة الحجز');
+    }
+});
+
+function showSuccessMessage() {
+    const messageBox = document.getElementById('success-message');
+    messageBox.classList.remove('hidden');
+
+    setTimeout(() => {
+        messageBox.classList.add('hidden');
+    }, 3000); // تختفي بعد 3 ثواني
+}
+
+
+</script>
+</body>
+</html>
